@@ -12,4 +12,4 @@ local ohno = message.guild.emojis:find(function(e) return e.name == 'ohno' end)
 	end
 end)
 
-client:run("Bot "..io.open("./token.txt"):read())
+client:run("Bot "..io.open("./token.config"):read())
