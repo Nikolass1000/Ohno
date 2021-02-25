@@ -4,6 +4,8 @@ Ohno reaction discord bot
 
 # Setup
 
+Make a folder for your bot, install everything in that folder (including bot file and config file)
+
 To install Luvit, visit https://luvit.io and follow the instructions provided for your platform.
 
 To install Discordia, run lit install SinisterRectus/discordia.
