@@ -10,7 +10,7 @@ To install Discordia, run lit install SinisterRectus/discordia.
 
 Go to the https://discordapp.com/developers/applications/me page and create an application in it.
 
-Give the application a bot user, change icon to ohno.png(optional) and put its token in the token.config.
+Give the application a bot user, change bot icon to ohno.png(optional) and put its token in the token.config.
 
 Invite your bot to your server using this URL:
 
