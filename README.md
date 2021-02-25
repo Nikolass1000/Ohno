@@ -2,7 +2,7 @@
 
 Ohno reaction discord bot
 
-Setup
+# Setup
 
 To install Luvit, visit https://luvit.io and follow the instructions provided for your platform.
 
