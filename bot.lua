@@ -39,11 +39,11 @@ client:on('messageCreate', function(stuff)
         if stuff.content == "$pingme" then
             stuff.channel:send(stuff.author.mentionString)
         end
-        if lowmsg == "$do sk" then
+        if stuff.content == "$do sk" then
             stuff.channel:send('do not the sk.')
         end
         
-        if msg == "**iOS**" then
+        if stuff.content == "**iOS**" then
             stuff.channel:send('*1. You can\'t*')
         end
          
