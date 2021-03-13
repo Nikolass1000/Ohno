@@ -7,7 +7,7 @@ end)
 
 client:on('messageCreate', function(message)
 local ohno = message.guild.emojis:find(function(e) return e.name == 'ohno' end)
-	if message.content == "ohno" then
+	if message.content == "ohno" or message.content == "oh no" then
 		message:addReaction(ohno)
 	end
 end)
