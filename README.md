@@ -8,7 +8,7 @@ Make a folder for your bot, install everything in that folder (including bot fil
 
 To install Luvit, visit https://luvit.io and follow the instructions provided for your platform.
 
-To install Discordia, run lit install SinisterRectus/discordia.
+To install Discordia, run '`lit install SinisterRectus/discordia.`
 
 Go to the https://discordapp.com/developers/applications/me page and create an application in it.
 
