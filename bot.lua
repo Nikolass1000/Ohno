@@ -24,7 +24,7 @@ client:on('messageCreate', function(message)
                 stat = tostring(counter) .. " ohnos"
                 client:setGame(stat)
             end
-          end
+         end
     end)
          
 --Commands--
@@ -44,16 +44,27 @@ client:on('messageCreate', function(help)
          end
          end)
 
+--WIP Warn System--
+
+--client:on('messageCreate', function(warning)
+--          warneduser = warning.mentionedUsers.first
+--            warningmessage = warning.content
+--         moder = warning.member.roles:find(function(m) return string.lower(m.name) == 'moderator' end)
+--         if moder ~= nil and string.lower(moder.name) == "moderator" and warneduser ~= nil and string.find(warningmessage, "~warn") then
+--         warning.channel:send(warneduser.mentionString .. ", warn system test")
+--         end
+--         end)
+
 --Other stuff--
      
 client:on('messageCreate', function(stuff)
-   if stuff.guild ~= nil then 
-    anuke = stuff.guild.emojis:find(function(a) return a.name == 'anuke' end)
         if stuff.content == "~anuke" then
-            stuff.channel:send("<:anuke:".. anuke.id .. ">")
+         quotenumber = math.random(1, 120)
+         quote = "./anukequotes/" .. quotenumber .. ".png"
+         stuff.channel:send{file = quote}
         end
-    router = stuff.guild.emojis:find(function(r) return r.name == 'router' end)
-        if stuff.content == "~router" then
+         if stuff.content == "~router" and stuff.guild ~= nil then
+        router = stuff.guild.emojis:find(function(r) return r.name == 'router' end)
             stuff.channel:send("<:router:" .. router.id .. ">")
         end
          if stuff.content == "~ohno" then
@@ -72,8 +83,7 @@ client:on('messageCreate', function(stuff)
         if stuff.content == "~brazil" then
             stuff.channel:send(stuff.author.mentionString .. ' is going to ' .. ':flag_br:')
         end
-      end     
-   end)
+    end)
 
 --Get profile picture--
 
