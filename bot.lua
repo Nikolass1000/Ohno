@@ -11,7 +11,7 @@ client:on('ready', function()
 --Main task--
 
 client:on('messageCreate', function(message)
-    
+    if message.guild ~= nil then
     ohno = message.guild.emojis:find(function(e) return e.name == 'ohno' end)
         msg = message.content
         lowmsg = string.lower(msg)
@@ -24,6 +24,7 @@ client:on('messageCreate', function(message)
                 stat = tostring(counter) .. " ohnos"
                 client:setGame(stat)
             end
+          end
     end)
          
 --Commands--
@@ -46,7 +47,7 @@ client:on('messageCreate', function(help)
 --Other stuff--
      
 client:on('messageCreate', function(stuff)
-    
+   if stuff.guild ~= nil then 
     anuke = stuff.guild.emojis:find(function(a) return a.name == 'anuke' end)
         if stuff.content == "~anuke" then
             stuff.channel:send("<:anuke:".. anuke.id .. ">")
@@ -71,8 +72,8 @@ client:on('messageCreate', function(stuff)
         if stuff.content == "~brazil" then
             stuff.channel:send(stuff.author.mentionString .. ' is going to ' .. ':flag_br:')
         end
-
-         end)
+      end     
+   end)
 
 --Get profile picture--
 
