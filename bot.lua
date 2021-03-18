@@ -1,5 +1,6 @@
 local discordia = require('discordia')
 local client = discordia.Client()
+timer = require('timer')
 
 client:on('ready', function()
     print('Logged in as '.. client.user.username)
@@ -36,7 +37,7 @@ client:on('messageCreate', function(help)
             embed = {
             title = "Available commands:",
             fields = {
-                {name = "Use ~ prefix", value = "anuke \n router \n pingme \n do sk \n ohno \n pfp \n brazil \n \\**iOS** (no ~)", inline = false},                      
+                {name = "Use ~ prefix", value = "anuke \n router \n pingme \n do sk \n pfp (ping user for their pfp) \n time \n brazil \n \\**iOS** (without prefix)", inline = false},                      
                      },
                 color = discordia.Color.fromRGB(254, 254, 254).value,
                      }
@@ -56,22 +57,34 @@ client:on('messageCreate', function(help)
 --         end)
 
 --Other stuff--
+
+client:on('messageCreate', function(anuk)
+          anook = anuk.content
+        if string.find(anook, "~anuke") then -- and time1 > time2 then
+         quotenumber = math.random(1, 132)
+         quote = "./anukequotes/" .. quotenumber .. ".png"
+         anuk.channel:send{file = quote}
+    end
+end)
      
 client:on('messageCreate', function(stuff)
-        if stuff.content == "~anuke" then
-         quotenumber = math.random(1, 120)
-         quote = "./anukequotes/" .. quotenumber .. ".png"
-         stuff.channel:send{file = quote}
-        end
+
          if stuff.content == "~router" and stuff.guild ~= nil then
         router = stuff.guild.emojis:find(function(r) return r.name == 'router' end)
             stuff.channel:send("<:router:" .. router.id .. ">")
         end
-         if stuff.content == "~ohno" then
-            stuff.channel:send("<:ohno:" .. ohno.id .. ">")
-        end
         if stuff.content == "~pingme" then
             stuff.channel:send(stuff.author.mentionString)
+        end
+        if stuff.content == "~time" then
+         stuff.channel:send{
+                    embed = {
+                             fields = {
+                                {name = "UTC time: ", value = discordia.Date():toISO(), inline = false},
+                                {name = "Host time: ", value = discordia.Date():toString('%a %b %d %Y %T GMT%z'), inline = false},
+                                       },
+                            color = discordia.Color.fromRGB(254, 254, 254).value,
+                            }}
         end
         if stuff.content == "~do sk" then
             stuff.channel:send('do not the sk.')
@@ -96,9 +109,9 @@ client:on('messageCreate', function(profile)
          pfp = profile.author.avatarURL
          profile.channel:send{
             embed = {
-            title = "Searching for " .. profile.author.name .. "'s profile picture...",
-            fields = {
-                {name = "Found:", value = pfp, inline = false},                      
+            title = profile.author.name .. "'s profile picture:",
+            image = {
+                url = pfp                     
                      },
                 color = discordia.Color.fromRGB(254, 254, 254).value,
                      }
@@ -109,9 +122,9 @@ client:on('messageCreate', function(profile)
          pfp = mentioneduser.avatarURL
          profile.channel:send{
             embed = {
-            title = "Searching for " .. mentioneduser.name .. "'s profile picture...",
-            fields = {
-                {name = "Found:", value = pfp, inline = false},                      
+            title = mentioneduser.name .. "'s profile picture:",
+            image = {
+                url = pfp                      
                      },
                 color = discordia.Color.fromRGB(254, 254, 254).value,
                      }
